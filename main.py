@@ -1,4 +1,6 @@
 import csv
+import argparse
+import sys
 
 import Result as Result
 
@@ -22,19 +24,19 @@ if __name__ == "__main__":
         #     print(line)
 
         MoviesList = list(Movies_Data)
-    print(MoviesList)
-    print(type(MoviesList))
+    # print(MoviesList)
+    # print(type(MoviesList))
 
     mv = MoviesClass.Movies(MoviesList)
     bo = True
-    while bo is True:
-        print("1. For a given year display the highest rating and movie name, "
-              "lowest rating and movie name, and average runtime minutes? for this qs press r.  ")
-        print("For a given genre display the number of movies and the mean rating? for this qs press g.  ")
-        print("For a given year print the top ten highest rated movies (using numVotes). "
-              "Also print a :grinning: for every x votes such that at max you can print 80 likes. for this qs press v")
-        print("Press 0 to exit.")
-        i = input()
+    arguments = sys.argv[1:]
+    for i in arguments:
+        # print("1. For a given year display the highest rating and movie name, " "lowest rating and movie name,
+        # and average runtime minutes? for this qs press r.  ") print("For a given genre display the number of movies
+        # and the mean rating? for this qs press g.  ") print("For a given year print the top ten highest rated
+        # movies (using numVotes). " "Also print a :grinning: for every x votes such that at max you can print 80
+        # likes. for this qs press v") print("Press 0 to exit.") parser = argparse.ArgumentParser()
+        # parser.add_argument("i", help="Question?") args = parser.parse_args()
         if i == '0':
             break
         Rs = Result.Result(i, MoviesList)

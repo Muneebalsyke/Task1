@@ -1,6 +1,9 @@
+import sys
+
 from emoji.core import emojize
 import csv
 from MoviesClass import Movies
+import argparse
 
 
 # with open('movies_dataset.csv', 'r') as Movies1:
@@ -18,7 +21,10 @@ class Result(Movies):
     def result(self):
         if self.string == 'r':
             print('Which year you want to get highest and lowest rating movie from? ')
-            s = input()
+            # parser = argparse.ArgumentParser()
+            # parser.add_argument("s", help="Question?")
+            # args = parser.parse_args()
+            s = sys.argv[2]
             k = 10
             h = 0
             x = []
@@ -32,7 +38,7 @@ class Result(Movies):
                 # for y_list in x_list:
                 # for y in enumerate(x):
 
-                if x_list[3] == s:
+                if x_list[3] == int(s):
                     if k > float(x_list[6]):
                         k = float(x_list[6])
                         x = x_list
@@ -51,7 +57,10 @@ class Result(Movies):
 
         elif self.string == 'g':
             print("Please input the genre for num of Movies and rating")
-            z = input()
+            # parser = argparse.ArgumentParser()
+            # parser.add_argument("z", help="Genre?")
+            # args = parser.parse_args()
+            z = sys.argv[2]
             nom = 0
             mr = []
             for g_list in self.movielist:
@@ -73,10 +82,13 @@ class Result(Movies):
             top10 = []
             m = 0
             print("Input the year from which you want to see top 10 movies ?")
-            c = input()
+            # parser = argparse.ArgumentParser()
+            # parser.add_argument("c", help="Year?")
+            # args = parser.parse_args()
+            c = sys.argv[2]
             for p_list in self.movielist:
 
-                if p_list[3] == c:
+                if p_list[3] == int(c):
                     top10.append(p_list)
 
             top10.sort(key=lambda a: a[3])
@@ -92,5 +104,5 @@ class Result(Movies):
             if len(top10) == 0:
                 print("No Movies Found")
 
-        else:
-            print("No Movies found.")
+        # else:
+        #     print("No Movies found.")
