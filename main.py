@@ -1,11 +1,7 @@
 import csv
 import argparse
 import sys
-
-import Result as Result
-
 import MoviesClass
-import Movie_parser
 import MovieList
 import Result
 import os
